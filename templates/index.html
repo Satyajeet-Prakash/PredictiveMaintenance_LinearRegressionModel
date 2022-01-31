@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Search Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+        <div class="content">
+            <h1 style="text-align: center">Machine Learning Model for Predictive Maintenance Dataset</h1>
+
+            <div class="form">
+                <form action="/predict" id="aiform"  method="POST">
+                    <table>
+                        <tr>
+                            <th>
+                                <label>Process temperature [K] : </label>
+                            </th>
+                            <td>
+                                <input type="number" name="processTemperature" step="0.1"><br>
+                            </td>
+                            <th>
+                                 <label>Rotational speed [rpm] : </label>
+                            </th>
+                             <td>
+                                <input type="number" name="rotationalSpeed"><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label>Torque [Nm] : </label>
+                            </th>
+                            <td>
+                                <input type="number" name="torque" step="0.1"><br>
+                            </td>
+                            <th>
+                                 <label>Tool wear [min]</label>
+                            </th>
+                             <td>
+                                <input type="number" name="toolWear"><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="twf" >TWF : </label></th>
+                            <td>
+                                 <select name="twf" id="twf">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                </select>
+                            </td>
+                            <th><label for="hdf" >HDF : </label></th>
+                            <td>
+                                <select name="hdf" id="hdf">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                           <th> <label for="pwf" >PWF : </label></th>
+                            <td>
+                                <select name="pwf" id="pwf">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                </select><br>
+                            </td>
+                            <th><label for="osf" >OSF : </label></th>
+                            <td>
+                                 <select name="osf" id="osf">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label for="rnf" >RNF : </label></th>
+                            <td>
+                                <select name="rnf" id="rnf">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                </select>
+                            </td><th></th><td></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                           <th><input type="submit" value="Predict"></th>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+{% endblock %}
